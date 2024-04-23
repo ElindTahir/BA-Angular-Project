@@ -1,0 +1,57 @@
+.center-container {
+    position: relative;
+    bottom: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-direction: row;
+}
+
+.btn-One {
+    height: 250px;
+    width: 250px;
+    border: 2px solid #ED2939;
+    background-color: #ED2939;
+    color: white;
+    font-size: 24px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-One:hover {
+    background-color: #D30000;
+    color: white;
+}
+
+.btn-Two {
+    height: 250px;
+    width: 250px;
+    border: 2px solid #003E7F;
+    background-color: #003E7F;
+    color: white;
+    font-size: 24px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-Two:hover {
+    background-color: #002966;
+    color: white;
+}
+
+.btn-Three {
+    height: 250px;
+    width: 250px;
+    border: 2px solid #339933;
+    background-color: #339933;
+    color: white;
+    font-size: 24px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-Three:hover {
+    background-color: #1a8d1a;
+    color: white;
+}
