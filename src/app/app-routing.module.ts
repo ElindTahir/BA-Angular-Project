@@ -6,7 +6,7 @@ import { ApiFetchingPageComponent } from './api-fetching-page/api-fetching-page.
 import { ChartPageComponent } from './chart-page/chart-page.component';
 
 const routes: Routes = [
-  { path: 'landing-page', component: LandingPageComponent },
+  { path: '', component: LandingPageComponent },
   { path: 'database-page', component: DatabasePageComponent },
   { path: 'api-fetching-page', component: ApiFetchingPageComponent },
   { path: 'chart-page', component: ChartPageComponent }
