@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DeckOfCardsService } from '../service/deck-of-cards.service';
+import { DeckOfCardsService } from '../service/deck-of-cards-service/deck-of-cards.service';
 
 @Component({
   selector: 'app-api-fetching-page',
