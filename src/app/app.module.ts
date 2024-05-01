@@ -9,6 +9,7 @@ import { ApiFetchingPageComponent } from './api-fetching-page/api-fetching-page.
 import { ChartPageComponent } from './chart-page/chart-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
+import { Chart } from 'chart.js';
 
 @NgModule({
   declarations: [
