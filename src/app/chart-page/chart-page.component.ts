@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { ChartService } from '../service/Chart-service/chart.service';
 
 @Component({
   selector: 'app-chart-page',
@@ -10,22 +11,37 @@ export class ChartPageComponent {
   @ViewChild('pieCanvas') pieCanvas: ElementRef<HTMLCanvasElement> | undefined;
   chart: Chart<"pie", number[], string> | undefined;
   showPieChart: boolean = false;
+  labels: string[] = [];
+  data: number[] = []; 
 
-  constructor() { 
+  constructor(private chartService: ChartService) { 
     Chart.register(...registerables);
   }
 
   ngAfterViewInit() {
   }
 
-  initChart() {
+  loadChartData() {
+    this.chartService.getAgeData().subscribe(data => {
+      this.labels = data.map(item => item.age_group);
+      this.data = data.map(item => item.count);
+      this.initChart(this.labels, this.data);
+      console.log(data)
+    });
+  }
+
+  initChart(labels: string[], data: number[]) {
     if (this.pieCanvas && this.pieCanvas.nativeElement) {
+      if (this.chart) {
+        this.chart.destroy();
+      }
+
       this.chart = new Chart(this.pieCanvas.nativeElement, {
         type: 'pie',
         data: {
-          labels: ['18-23', '24-28', '29-38', '39-47', '48-60'],
+          labels: labels,
           datasets: [{
-            data: [10, 20, 30, 20, 15],
+            data: data,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -58,7 +74,7 @@ export class ChartPageComponent {
   loadPieChart() {
     this.showPieChart = true;
     setTimeout(() => {
-      this.initChart();
+      this.initChart(this.labels, this.data);
     }, 0);
   }
 }
