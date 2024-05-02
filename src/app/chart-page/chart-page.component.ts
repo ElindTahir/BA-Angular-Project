@@ -26,7 +26,6 @@ export class ChartPageComponent {
       this.labels = data.map(item => item.age_group);
       this.data = data.map(item => item.count);
       this.initChart(this.labels, this.data);
-      console.log(data)
     });
   }
 
@@ -73,6 +72,7 @@ export class ChartPageComponent {
 
   loadPieChart() {
     this.showPieChart = true;
+    this.loadChartData();
     setTimeout(() => {
       this.initChart(this.labels, this.data);
     }, 0);

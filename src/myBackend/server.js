@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
     try {
       const { rows } = await pool.query('SELECT * FROM bachelorDummyData');
       res.json(rows);
-    //   console.log(res);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
