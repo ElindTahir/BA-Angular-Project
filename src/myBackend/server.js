@@ -59,9 +59,9 @@ app.get('/age-data', async (req, res) => {
 app.delete('/api/items', async (req, res) => {
   try {
     await pool.query('DELETE FROM bachelordummydata');
-    
+
     await pool.query('ALTER SEQUENCE bachelordummydata_id_seq RESTART WITH 1');
-    
+
     res.status(200).send('Alle Daten wurden gelöscht und die ID-Sequenz wurde zurückgesetzt');
   } catch (error) {
     console.error('Fehler beim Löschen der Daten:', error);
@@ -94,6 +94,30 @@ app.post('/api/restore-csv', async (req, res) => {
         res.status(500).send('Fehler beim Wiederherstellen der Daten');
       }
     });
+});
+
+app.delete('/api/items/delete100', async (req, res) => {
+  try {
+    await pool.query('DELETE FROM bachelordummydata WHERE id IN (SELECT id FROM bachelordummydata LIMIT 100)');
+    res.status(200).send('100 Datensätze wurden gelöscht');
+  } catch (error) {
+    console.error('Fehler beim Löschen der 100 Datensätze:', error);
+    res.status(500).send('Fehler beim Löschen der 100 Datensätze');
+  }
+});
+
+app.post('/api/items/add100', async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'sql', 'insertData.sql');
+    const insertDataSql = fs.readFileSync(filePath, 'utf8');
+
+    await pool.query(insertDataSql);
+
+    res.status(200).send('100 Datensätze wurden hinzugefügt');
+  } catch (error) {
+    console.error('Fehler beim Hinzufügen der 100 Datensätze:', error);
+    res.status(500).send('Fehler beim Hinzufügen der 100 Datensätze');
+  }
 });
 
 app.listen(port, () => {

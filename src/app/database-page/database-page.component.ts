@@ -42,12 +42,33 @@ export class DatabasePageComponent {
     }, error => {
       console.error("Fehler beim Löschen der Daten:", error);
     });
-    this.loadData();
+    setTimeout(() => {
+      this.loadData();
+    }, 1000);
   }
 
   deleteDataSet() {
+    console.log("Lösche 100 Datensätze...");
+    this.databaseService.delete100Items().subscribe(response => {
+      console.log("100 Datensätze wurden gelöscht:", response);
+    }, error => {
+      console.error("Fehler beim Löschen der 100 Datensätze:", error);
+    });
+    setTimeout(() => {
+      this.loadData();
+    }, 1000);
   }
 
   addDataSet() {
+    console.log("Füge 100 Datensätze hinzu...");
+    this.databaseService.add100Items().subscribe(response => {
+      console.log("100 Datensätze wurden hinzugefügt:", response);
+      this.loadData();
+    }, error => {
+      console.error("Fehler beim Hinzufügen der 100 Datensätze:", error);
+    });
+    setTimeout(() => {
+      this.loadData();
+    }, 1000);
   }
 }

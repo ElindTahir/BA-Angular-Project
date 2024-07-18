@@ -22,4 +22,12 @@ export class DatabaseService {
   restoreCSV(): Observable<any> {
     return this.http.post(`${this.apiUrl}/restore-csv`, {});
   }
+
+  delete100Items(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/items/delete100`);
+  }
+
+  add100Items(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/items/add100`, {});
+  }
 }
