@@ -4,12 +4,14 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DatabasePageComponent } from './database-page/database-page.component';
 import { ApiFetchingPageComponent } from './api-fetching-page/api-fetching-page.component';
 import { ChartPageComponent } from './chart-page/chart-page.component';
+import { MockDataPageComponent } from './mock-data-page/mock-data-page.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'database-page', component: DatabasePageComponent },
   { path: 'api-fetching-page', component: ApiFetchingPageComponent },
-  { path: 'chart-page', component: ChartPageComponent }
+  { path: 'chart-page', component: ChartPageComponent },
+  { path: 'mock-data-page', component: MockDataPageComponent }
 ];
 
 @NgModule({
