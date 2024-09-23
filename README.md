@@ -19,10 +19,13 @@ This project demonstrates web performance testing and consists of four main comp
 ## Getting Started  
 To run the project locally, follow these steps:
 
-1. In the root folder of the project, enter the command `ng serve` or `ng serve -o` to start the build process.  
+1. In the root folder of the project, first install the dependencies by running:
+   `npm install`
+
+2. In the root folder of the project, enter the command `ng serve` or `ng serve -o` to start the build process.  
    Once the build is successful, the application can be accessed via `http://localhost:4200/` in the browser.
 
-2. Additionally, the backend server needs to be running.  
+3. Additionally, the backend server needs to be running.  
    Navigate to the backend folder using the following command:  
    `cd .\src\myBackend\`
 
