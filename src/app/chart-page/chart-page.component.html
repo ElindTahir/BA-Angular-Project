@@ -1,0 +1,8 @@
+<div class="chart-container">
+    <h1 class="title">Altersverteilung</h1>
+    <div class="button-container">
+        <button class="btn btn-primary" (click)="loadPieChart()">Pie Chart laden</button>
+        <button class="btn btn-warning" (click)="reloadPage()">Seite neu laden</button>
+    </div>
+    <canvas #pieCanvas *ngIf="showPieChart"></canvas>
+</div>

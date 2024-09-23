@@ -1,0 +1,28 @@
+<div class="center-container">
+    <h1 class="title">Fetchen von Mock-Daten aus einer JSON-Datei</h1>
+    <div class="d-flex gap-2">
+        <button class="btn btn-primary" (click)="loadMockData()">Mock-Daten laden</button>
+    </div>
+    <table class="table table-striped table-hover" *ngIf="mockItems.length > 0">
+        <thead class="thead-dark">
+            <tr>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Email</th>
+                <th>Alter</th>
+                <th>Geburtsort</th>
+                <th>Tätigkeit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mockItem of mockItems">
+                <td>{{ mockItem.vorname }}</td>
+                <td>{{ mockItem.nachname }}</td>
+                <td>{{ mockItem.email }}</td>
+                <td>{{ mockItem.alter }}</td>
+                <td>{{ mockItem.geburtsort }}</td>
+                <td>{{ mockItem.taetigkeit }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

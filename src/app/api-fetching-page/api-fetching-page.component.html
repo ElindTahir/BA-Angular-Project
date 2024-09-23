@@ -1,0 +1,18 @@
+<div class="center-container">
+    <h1 class="title">Fetchen von Poker Karten von einer API</h1>
+
+    <div class="container">
+        <div class="button-container mb-2">
+            <button class="btn btn-primary" (click)="createDeck()">Neues Deck erstellen</button>
+            <span *ngIf="deckCreatedMessage" class="message">{{ deckCreatedMessage }}</span>
+        </div>
+
+        <div class="button-container mb-5">
+            <input type="number" [(ngModel)]="numCardsToDraw" min="1" class="form-control card-input" style="width: 50px; margin-right: 10px;">
+            <button class="btn btn-warning" (click)="drawCard()" [disabled]="!deckId">Karten ziehen</button>
+        </div>
+        <div class="card-container">
+            <img *ngFor="let card of cards" [src]="card.image" [alt]="card.code">
+        </div>
+    </div>
+</div>
