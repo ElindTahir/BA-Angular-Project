@@ -77,4 +77,8 @@ export class ChartPageComponent {
       this.initChart(this.labels, this.data);
     }, 0);
   }
+
+  reloadPage(){
+    window.location.reload()
+  }
 }
